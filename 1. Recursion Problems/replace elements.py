@@ -1,10 +1,9 @@
-def replace(s,a,b,start):
-    if start==len(s):
+def exchange(s,a,b):
+    if len(s)==0:
         return s
-    if s[start]==a:
-        s = s[:start] + b + s[start+1:]
-    return replace(s,a,b,start+1)
-s='hallo haa'
-a=input("Enter the element you have to change: ")
-b=input("Enter the element you have to place: ")
-print(replace(s,a,b,0))
+    if s[0]==a:
+        return b + exchange(s[1:],a,b)
+    else:
+        return s[0] + exchange(s[1:],a,b)
+s='aaaaaabhiijaaa'
+print(exchange(s,'a','b'))
