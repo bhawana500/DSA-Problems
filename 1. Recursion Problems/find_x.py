@@ -12,4 +12,4 @@ l=[1,2,3,4,5,6,7,8,22,44,56,88,100,2,9,10,1]
 x=3
 l.sort()
 print(l)
-print(f"{x} index is",find(l,x,0,len(l)-1)) 
+print(find(l,x,0,len(l)-1)) 
