@@ -6,5 +6,5 @@ def check_list(x,l,start):
     else:
         return check_list(x,l,start-1)
 l=[1,2,3,4,2,5,7,6,7,8]
-x=int(input("Enter the element to find it's first occurence: "))
+x=int(input("Enter the element to find it's last occurence: "))
 print(check_list(x,l,-1))
