@@ -7,7 +7,7 @@ def binary_search(l,target,li,si):
     elif target>l[mid]:
         return binary_search(l,target,mid+1,si)
     else:
-        return binary_search(l[:mid],target,li,mid-1)
+        return binary_search(l,target,li,mid-1)
 
 l=[-9,0,1,3,6,9,12,56,78]                                             
 print(binary_search(l,12,0,len(l)-1))
