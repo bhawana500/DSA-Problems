@@ -2,30 +2,36 @@ def partition(l,si,ei):
     if len(l)==1 or len(l)==0:
         return
     count=0
-    for i in range(len(l)):
-        if l[0]>l[i]:
+    for i in range(si,ei+1):
+        if l[si]>l[i]:
             count+=1
     mid=si+count
-    temp=l[0]
-    l[0]=l[mid]
+    temp=l[si]
+    l[si]=l[mid]
     l[mid]=temp
-    for i in range(len(l[:mid])):
-        for j in range(len(l[mid+1:])):
-            if l[i]>l[mid] and l[i]>l[j]:
-                temp = l[i]
-                l[i] = l[j]
-                l[j] = temp
-            break
-    return l
+    
+    i = si
+    j = ei
+    while i<mid and j > mid:
+        if l[i] < l[mid]:
+            i+=1
+        elif l[j] >= l[mid]:
+            j -=1
+        else:
+            temp = l[i]
+            l[i] = l[j]
+            l[j] = temp
+    return mid
+
 def q_sort(l,si,ei):
-    if len(l)==1 or len(l)==0:
+    if si>ei:
         return
-    l=l[si:ei+1]
     mid = partition(l,si,ei)
-    if mid==None:
-        return
     q_sort(l,si,mid-1)
     q_sort(l,mid+1,ei)
+    
 l=[3,7,4,2,8,5,6,1,9]   
-l=partition(l,0,len(l)-1) 
+
+q_sort(l,0,len(l)-1) 
 print(l)
+
